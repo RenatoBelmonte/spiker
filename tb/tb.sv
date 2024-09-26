@@ -56,7 +56,7 @@ module tb;
         input_signal = 4'hF;
         
         // Finish simulation
-        #100 $finish;
+        #1000 $finish;
     end
 
     // Monitor outputs
