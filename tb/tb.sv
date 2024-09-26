@@ -54,9 +54,9 @@ module tb;
 
         @(posedge sample);
         input_signal = 4'hF;
-        
+        sample_ready = 0; 
         // Finish simulation
-        #1000 $finish;
+        #20000 $finish;
     end
 
     // Monitor outputs
