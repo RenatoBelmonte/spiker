@@ -58,6 +58,10 @@ module tb;
         
         @(posedge sample);
         input_signal = 4'h0;
+        @(posedge sample);
+        input_signal = 4'h0;
+        @(posedge sample);
+        input_signal = 4'h0;
 
         #10
 
