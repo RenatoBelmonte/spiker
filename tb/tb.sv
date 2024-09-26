@@ -36,7 +36,7 @@ module tb;
     initial begin
         // Initialize signals
         rst_n = 0;
-        input_signal = 4'b1010;
+        input_signal = 4'hF;
         sample_ready = 1;
 
         // Apply reset
