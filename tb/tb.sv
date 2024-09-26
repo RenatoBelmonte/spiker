@@ -47,13 +47,13 @@ module tb;
 
         // Wait for sample to go high
         @(posedge sample);
-        input_signal = 4'hf;
+        input_signal = 4'he;
 
         @(posedge sample);
-        input_signal = 4'hf;
+        input_signal = 4'hd;
 
         @(posedge sample);
-        input_signal = 4'hF;
+        input_signal = 4'hc;
         sample_ready = 0; 
         // Finish simulation
         #20000 $finish;
