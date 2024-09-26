@@ -42,6 +42,7 @@ module tb;
         // Apply reset
         #10 
         rst_n = 1;
+        @(posedge ready);
         start = 1;  
 
         // Wait for sample to go high
