@@ -137,6 +137,7 @@ begin
         generic map(
             bitwidth => neuron_bit_width
         )
+        -- adding a substitution for the weights to work with VHDL 2008 instead of 2019
         port map(
             mux_sel => update_sel,
             in0 => v_th,
