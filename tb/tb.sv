@@ -57,11 +57,11 @@ module tb;
         input_signal = 4'hc;
         
         @(posedge sample);
-        input_signal = 4'h0;
+        input_signal = 4'hf;
         @(posedge sample);
-        input_signal = 4'h0;
+        input_signal = 4'hf;
         @(posedge sample);
-        input_signal = 4'h0;
+        input_signal = 4'hf;
 
         #10
         @(posedge ready);
