@@ -46,10 +46,10 @@ module tb;
 
         // Wait for sample to go high
         @(posedge sample);
-        input_signal = 4'hA;
+        input_signal = 4'hf;
 
         @(posedge sample);
-        input_signal = 4'h5;
+        input_signal = 4'hf;
 
         @(posedge sample);
         input_signal = 4'hF;
