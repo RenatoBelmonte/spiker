@@ -13,7 +13,7 @@ module tb;
 
     // Instantiate the network module
     network #(
-        .n_cylces(10),
+        .n_cycles(10),
         .cycles_cnt_bitwidth(5)
     ) uut (
         .clk(clk),
