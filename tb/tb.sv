@@ -3,7 +3,7 @@ module tb;
     // Declare signals
     logic clk;
     logic rst_n;
-    logic [7:0] input_signal;
+    logic [3:0] input_signal;
     logic [1:0] output_signal;
 
     logic start;
