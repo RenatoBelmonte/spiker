@@ -142,9 +142,9 @@ begin
             mux_sel => update_sel,
             in0 => v_th,
             in1 => v_shifted,
-            in2(neuron_bit_width-1 downto exc_weights_bit_width) => (others => exc_weight(exc_weights_bit_width-1)),
+            in2(bitwidth-1 downto exc_weights_bit_width) => (others => exc_weight(exc_weights_bit_width-1)),
             in2(exc_weights_bit_width-1 downto 0) => exc_weight,
-            in3(neuron_bit_width-1 downto inh_weights_bit_width) => (others => inh_weight(inh_weights_bit_width-1)),
+            in3(bitwidth-1 downto inh_weights_bit_width) => (others => inh_weight(inh_weights_bit_width-1)),
             in3(inh_weights_bit_width-1 downto 0) => inh_weight,
             mux_out => update
         );
