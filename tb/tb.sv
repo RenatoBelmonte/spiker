@@ -55,6 +55,10 @@ module tb;
 
         @(posedge sample);
         input_signal = 4'hc;
+        
+        @(posedge sample);
+        input_signal = 4'h0;
+
         sample_ready = 0; 
         // Finish simulation
        // #20000 
