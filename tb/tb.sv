@@ -42,6 +42,7 @@ module tb;
         // Apply reset
         #10 
         rst_n = 1;
+        start = 1;  
 
         // Wait for sample to go high
         @(posedge sample);
@@ -59,7 +60,7 @@ module tb;
 
     // Monitor outputs
     initial begin
-        $monitor("At time %t, input_signal = %h, output_signal = %h, sample = %h, sample_ready = %h, ready = %h", $time, input_signal, output_signal, sample, sample_ready, ready);
+        $monitor("At time %t, input_signal = %h, output_signal = %h, sample_ready = %h, ready = %h, sample = %h", $time, input_signal, output_signal, sample_ready, ready, sample);
     end
 
 endmodule
