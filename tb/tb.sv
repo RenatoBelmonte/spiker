@@ -36,7 +36,7 @@ module tb;
     initial begin
         // Initialize signals
         rst_n = 0;
-        input_signal = 8'b10101111;
+        input_signal = 4'b1010;
         sample_ready = 1;
 
         // Apply reset
@@ -45,13 +45,13 @@ module tb;
 
         // Wait for sample to go high
         @(posedge sample);
-        input_signal = 8'hAA;
+        input_signal = 4'hA;
 
         @(posedge sample);
-        input_signal = 8'h55;
+        input_signal = 4'h5;
 
         @(posedge sample);
-        input_signal = 8'hFF;
+        input_signal = 4'hF;
         
         // Finish simulation
         #100 $finish;
