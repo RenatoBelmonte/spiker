@@ -59,7 +59,7 @@ end entity layer_2_neurons_3_inputs;
 architecture behavior of layer_2_neurons_3_inputs is
 
 
-    constant v_th_0 : signed(neuron_bit_width-1 downto 0) := "00001000";
+    constant v_th_0 : signed(neuron_bit_width-1 downto 0) := "00000100";
     constant v_th_1 : signed(neuron_bit_width-1 downto 0) := "00010000";
 
     component multi_input_3_exc_2_inh is
