@@ -1,0 +1,55 @@
+package:
+  name: spiker
+  authors: 
+    - "Alessio Carpegna <alessio.carpegna@polito.it"
+    - "Renato Belmonte <renatobelmonte.rb@gmail.com"
+
+
+sources:
+  - include_dirs:
+      - rtl/
+    files:
+      # Source files grouped in levels. Files in level 0 have no dependencies on files in this
+      # package. Files in level 1 only depend on files in level 0, files in level 2 on files in
+      # levels 1 and 0, etc. Files within a level are ordered alphabetically.
+      # Level 0
+      - rtl/common/spiker_pkg.vhd
+      # Level 1
+      - rtl/add_sub.vhd
+      - rtl/addr_converter.vhd
+      - rtl/and_mask.vhd
+      - rtl/barrier.vhd
+      - rtl/barrier_cu.vhd
+      - rtl/cmp_eq.vhd
+      - rtl/cmp_gt.vhd
+      - rtl/cnt.vhd
+      - rtl/generic_or.vhd
+      - rtl/layer_2_neurons_3_inputs.vhd
+      - rtl/layer_3_neurons_4_inputs.vhd
+      - rtl/multi_cycle.vhd
+      - rtl/multi_cycle_cu.vhd
+      - rtl/multi_cycle_dapapath.vhd
+      - rtl/multi_input_3_exc_2_inh.vhd
+      - rtl/multi_input_4_exc_3_inh.vhd
+      - rtl/multi_input_cu.vhd
+      - rtl/multi_input_dp_3_exc_2_inh.vhd
+      - rtl/multi_input_dp_4_exc_3_inh.vhd
+      - rtl/mux_2to1.vhd
+      - rtl/mux_4to1.vhd
+      - rtl/mux_4to1_signed.vhd
+      - rtl/network.vhd
+      - rtl/neuron.vhd
+      - rtl/neuron_cu.vhd
+      - rtl/neuron_datapath.vhd
+      - rtl/reg_signed_sync_rst.vhd
+      - rtl/reg_sync_rst.vhd
+      - rtl/rom_2x2_inhlif2.vhd
+      - rtl/rom_2x2_inhlif2_ip.vhd
+      - rtl/rom_3x2_exclif2.vhd
+      - rtl/rom_3x2_exclif2_ip.vhd
+      - rtl/rom_3x3_inhlif1.vhd
+      - rtl/rom_3x3_inhlif1_ip.vhd
+      - rtl/rom_4x3_exclif1.vhd
+      - rtl/rom_4x3_exclif1_ip.vhd
+      - rtl/shifter.vhd
+
