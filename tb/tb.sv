@@ -61,7 +61,7 @@ module tb;
 
     // Monitor outputs
     initial begin
-        $monitor("At time %t, input_signal = %h, output_signal = %h, sample_ready = %h, ready = %h, sample = %h", $time, input_signal, output_signal, sample_ready, ready, sample);
+        $monitor("At time %t, start = %h, input_signal = %h, output_signal = %h, sample_ready = %h, ready = %h, sample = %h", $time, start, input_signal, output_signal, sample_ready, ready, sample);
     end
 
 endmodule
