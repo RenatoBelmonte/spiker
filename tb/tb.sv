@@ -38,6 +38,7 @@ module tb;
         rst_n = 0;
         input_signal = 4'hF;
         sample_ready = 1;
+        start = 0;
 
         // Apply reset
         #10 
