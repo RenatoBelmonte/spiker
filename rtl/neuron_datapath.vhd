@@ -127,10 +127,10 @@ architecture behavior of neuron_datapath is
 begin
 
     signal2(neuron_bit_width-1 downto exc_weights_bit_width) <= (others => exc_weight(exc_weights_bit_width-1));
-    signal2(exc_weights_bit_width-1 downto 0) <= (others => exc_weight(exc_weights_bit_width-1));
+    signal2(exc_weights_bit_width-1 downto 0) <= exc_weight;
 
     signal3(neuron_bit_width-1 downto inh_weights_bit_width) <= (others => inh_weight(inh_weights_bit_width-1));
-    signal3(inh_weights_bit_width-1 downto 0) <= (others => inh_weight(inh_weights_bit_width-1));
+    signal3(inh_weights_bit_width-1 downto 0) <= inh_weight;
 
     v_shifter : shifter
         generic map(
