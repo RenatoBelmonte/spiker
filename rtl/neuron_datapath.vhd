@@ -120,8 +120,14 @@ architecture behavior of neuron_datapath is
     signal v_value : signed(neuron_bit_width-1 downto 0);
     signal v : signed(neuron_bit_width-1 downto 0);
     signal v_shifted : signed(neuron_bit_width-1 downto 0);
-
+    signal signal2 : signed(neuron_bit_width-1 downto 0);
+    signal signal3 : signed(neuron_bit_width-1 downto 0); 
 begin
+
+    signal2(neuron_bit_width-1 downto exc_weights_bit_width) <= (others => exc_weight(exc_weights_bit_width-1));
+    signal2(exc_weights_bit_width-1 downto 0) <= exc_weight;
+    signal3(neuron_bit_width-1 downto inh_weights_bit_width) <= (others => inh_weight(inh_weights_bit_width-1));
+    signal3(inh_weights_bit_width-1 downto 0) <= inh_weight;
 
     v_shifter : shifter
         generic map(
@@ -141,10 +147,8 @@ begin
             mux_sel => update_sel,
             in0 => v_th,
             in1 => v_shifted,
-            in2(neuron_bit_width-1 downto exc_weights_bit_width) => (others => exc_weight(exc_weights_bit_width-1)),
-            in2(exc_weights_bit_width-1 downto 0) => exc_weight,
-            in3(neuron_bit_width-1 downto inh_weights_bit_width) => (others => inh_weight(inh_weights_bit_width-1)),
-            in3(inh_weights_bit_width-1 downto 0) => inh_weight,
+            in2 => signal2,
+            in3 => signal3,
             mux_out => update
         );
 
