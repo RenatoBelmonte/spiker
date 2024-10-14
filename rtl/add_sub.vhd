@@ -33,7 +33,7 @@ use ieee.numeric_std.all;
 
 entity add_sub is
     generic (
-        N : integer := 8
+        N : integer := 6
     );
     port (
         in0 : in signed(N-1 downto 0);

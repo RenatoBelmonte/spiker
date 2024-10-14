@@ -32,7 +32,7 @@ use ieee.std_logic_1164.all;
 
 entity generic_or is
     generic (
-        N : integer := 3
+        N : integer := 128
     );
     port (
         or_in : in std_logic_vector(N-1 downto 0);

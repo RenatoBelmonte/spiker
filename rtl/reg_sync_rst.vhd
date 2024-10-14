@@ -32,7 +32,7 @@ use ieee.std_logic_1164.all;
 
 entity reg_sync_rst is
     generic (
-        N : integer := 3
+        N : integer := 128
     );
     port (
         clk : in std_logic;

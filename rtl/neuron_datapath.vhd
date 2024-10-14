@@ -33,9 +33,9 @@ use ieee.numeric_std.all;
 
 entity neuron_datapath is
     generic (
-        neuron_bit_width : integer := 8;
-        inh_weights_bit_width : integer := 6;
-        exc_weights_bit_width : integer := 6;
+        neuron_bit_width : integer := 6;
+        inh_weights_bit_width : integer := 4;
+        exc_weights_bit_width : integer := 4;
         shift : integer := 4
     );
     port (
@@ -56,7 +56,7 @@ architecture behavior of neuron_datapath is
 
     component shifter is
         generic (
-            N : integer := 8;
+            N : integer := 6;
             shift : integer := 4
         );
         port (
@@ -67,7 +67,7 @@ architecture behavior of neuron_datapath is
 
     component add_sub is
         generic (
-            N : integer := 8
+            N : integer := 6
         );
         port (
             in0 : in signed(N-1 downto 0);
@@ -79,7 +79,7 @@ architecture behavior of neuron_datapath is
 
     component mux_4to1_signed is
         generic (
-            bitwidth : integer := 8
+            bitwidth : integer := 6
         );
         port (
             mux_sel : in std_logic_vector(1 downto 0);
@@ -93,7 +93,7 @@ architecture behavior of neuron_datapath is
 
     component reg_signed_sync_rst is
         generic (
-            N : integer := 8
+            N : integer := 6
         );
         port (
             clk : in std_logic;
@@ -106,7 +106,7 @@ architecture behavior of neuron_datapath is
 
     component cmp_gt is
         generic (
-            N : integer := 8
+            N : integer := 6
         );
         port (
             in0 : in signed(N-1 downto 0);
@@ -121,16 +121,7 @@ architecture behavior of neuron_datapath is
     signal v : signed(neuron_bit_width-1 downto 0);
     signal v_shifted : signed(neuron_bit_width-1 downto 0);
 
-    signal signal2 : signed(neuron_bit_width-1 downto 0);
-    signal signal3 : signed(neuron_bit_width-1 downto 0); 
-
 begin
-
-    signal2(neuron_bit_width-1 downto exc_weights_bit_width) <= (others => exc_weight(exc_weights_bit_width-1));
-    signal2(exc_weights_bit_width-1 downto 0) <= exc_weight;
-
-    signal3(neuron_bit_width-1 downto inh_weights_bit_width) <= (others => inh_weight(inh_weights_bit_width-1));
-    signal3(inh_weights_bit_width-1 downto 0) <= inh_weight;
 
     v_shifter : shifter
         generic map(
@@ -150,8 +141,10 @@ begin
             mux_sel => update_sel,
             in0 => v_th,
             in1 => v_shifted,
-            in2 => signal2,
-            in3 => signal3,
+            in2(neuron_bit_width-1 downto exc_weights_bit_width) => (others => exc_weight(exc_weights_bit_width-1)),
+            in2(exc_weights_bit_width-1 downto 0) => exc_weight,
+            in3(neuron_bit_width-1 downto inh_weights_bit_width) => (others => inh_weight(inh_weights_bit_width-1)),
+            in3(inh_weights_bit_width-1 downto 0) => inh_weight,
             mux_out => update
         );
 

@@ -34,7 +34,7 @@ use work.spiker_pkg.all;
 
 entity barrier is
     generic (
-        N : integer := 2
+        N : integer := 10
     );
     port (
         clk : in std_logic;
@@ -64,7 +64,7 @@ architecture behavior of barrier is
 
     component reg_sync_rst is
         generic (
-            N : integer := 2
+            N : integer := 10
         );
         port (
             clk : in std_logic;

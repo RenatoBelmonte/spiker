@@ -32,7 +32,7 @@ use ieee.std_logic_1164.all;
 
 entity cmp_eq is
     generic (
-        N : integer := 2
+        N : integer := 7
     );
     port (
         in0 : in std_logic_vector(N-1 downto 0);

@@ -32,12 +32,12 @@ library work;
 use work.spiker_pkg.all;
 
 
-entity multi_input_4_exc_3_inh is
+entity multi_input_784_exc_128_inh is
     generic (
-        n_exc_inputs : integer := 4;
-        n_inh_inputs : integer := 3;
-        exc_cnt_bitwidth : integer := 2;
-        inh_cnt_bitwidth : integer := 2
+        n_exc_inputs : integer := 784;
+        n_inh_inputs : integer := 128;
+        exc_cnt_bitwidth : integer := 10;
+        inh_cnt_bitwidth : integer := 7
     );
     port (
         clk : in std_logic;
@@ -57,17 +57,17 @@ entity multi_input_4_exc_3_inh is
         exc_spike : out std_logic;
         inh_spike : out std_logic
     );
-end entity multi_input_4_exc_3_inh;
+end entity multi_input_784_exc_128_inh;
 
-architecture behavior of multi_input_4_exc_3_inh is
+architecture behavior of multi_input_784_exc_128_inh is
 
 
-    component multi_input_dp_4_exc_3_inh is
+    component multi_input_dp_784_exc_128_inh is
         generic (
-            n_exc_inputs : integer := 4;
-            n_inh_inputs : integer := 3;
-            exc_cnt_bitwidth : integer := 2;
-            inh_cnt_bitwidth : integer := 2
+            n_exc_inputs : integer := 784;
+            n_inh_inputs : integer := 128;
+            exc_cnt_bitwidth : integer := 10;
+            inh_cnt_bitwidth : integer := 7
         );
         port (
             clk : in std_logic;
@@ -133,7 +133,7 @@ begin
     out_sample <= spike_sample;
 
 
-    datapath : multi_input_dp_4_exc_3_inh
+    datapath : multi_input_dp_784_exc_128_inh
         generic map(
             n_exc_inputs => n_exc_inputs,
             n_inh_inputs => n_inh_inputs,

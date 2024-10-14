@@ -33,7 +33,7 @@ use ieee.numeric_std.all;
 
 entity shifter is
     generic (
-        N : integer := 8;
+        N : integer := 6;
         shift : integer := 4
     );
     port (

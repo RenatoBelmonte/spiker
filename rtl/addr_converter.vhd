@@ -33,7 +33,7 @@ use ieee.numeric_std.all;
 
 entity addr_converter is
     generic (
-        N : integer := 2
+        N : integer := 7
     );
     port (
         addr_in : in std_logic_vector(N-1 downto 0);

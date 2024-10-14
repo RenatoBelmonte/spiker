@@ -34,8 +34,8 @@ use work.spiker_pkg.all;
 
 entity multi_cycle is
     generic (
-        cycles_cnt_bitwidth : integer := 5;
-        n_cycles : integer := 10
+        cycles_cnt_bitwidth : integer := 8;
+        n_cycles : integer := 100
     );
     port (
         clk : in std_logic;
@@ -53,8 +53,8 @@ architecture behavior of multi_cycle is
 
     component multi_cycle_dapapath is
         generic (
-            cycles_cnt_bitwidth : integer := 5;
-            n_cycles : integer := 10
+            cycles_cnt_bitwidth : integer := 8;
+            n_cycles : integer := 100
         );
         port (
             clk : in std_logic;

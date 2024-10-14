@@ -33,7 +33,7 @@ use ieee.numeric_std.all;
 
 entity reg_signed_sync_rst is
     generic (
-        N : integer := 8
+        N : integer := 6
     );
     port (
         clk : in std_logic;

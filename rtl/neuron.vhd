@@ -35,9 +35,9 @@ use work.spiker_pkg.all;
 
 entity neuron is
     generic (
-        neuron_bit_width : integer := 8;
-        inh_weights_bit_width : integer := 6;
-        exc_weights_bit_width : integer := 6;
+        neuron_bit_width : integer := 6;
+        inh_weights_bit_width : integer := 4;
+        exc_weights_bit_width : integer := 4;
         shift : integer := 4
     );
     port (
@@ -61,9 +61,9 @@ architecture behavior of neuron is
 
     component neuron_datapath is
         generic (
-            neuron_bit_width : integer := 8;
-            inh_weights_bit_width : integer := 6;
-            exc_weights_bit_width : integer := 6;
+            neuron_bit_width : integer := 6;
+            inh_weights_bit_width : integer := 4;
+            exc_weights_bit_width : integer := 4;
             shift : integer := 4
         );
         port (

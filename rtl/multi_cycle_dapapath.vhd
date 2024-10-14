@@ -33,8 +33,8 @@ use ieee.numeric_std.all;
 
 entity multi_cycle_dapapath is
     generic (
-        cycles_cnt_bitwidth : integer := 5;
-        n_cycles : integer := 10
+        cycles_cnt_bitwidth : integer := 8;
+        n_cycles : integer := 100
     );
     port (
         clk : in std_logic;
@@ -62,7 +62,7 @@ architecture behavior of multi_cycle_dapapath is
 
     component cmp_eq is
         generic (
-            N : integer := 5
+            N : integer := 8
         );
         port (
             in0 : in std_logic_vector(N-1 downto 0);

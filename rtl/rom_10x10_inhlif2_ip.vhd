@@ -28,45 +28,49 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 
-entity rom_3x3_inhlif1 is
+entity rom_10x10_inhlif2_ip is
     port (
         clka : in std_logic;
-        addra : in std_logic_vector(1 downto 0);
-        dout_0 : out std_logic_vector(5 downto 0);
-        dout_1 : out std_logic_vector(5 downto 0);
-        dout_2 : out std_logic_vector(5 downto 0)
+        addra : in std_logic_vector(3 downto 0);
+        douta : out std_logic_vector(39 downto 0)
     );
-end entity rom_3x3_inhlif1;
+end entity rom_10x10_inhlif2_ip;
 
-architecture behavior of rom_3x3_inhlif1 is
-
-
-    component rom_3x3_inhlif1_ip is
-        port (
-            clka : in std_logic;
-            addra : in std_logic_vector(1 downto 0);
-            douta : out std_logic_vector(17 downto 0)
-        );
-    end component;
+architecture behavior of rom_10x10_inhlif2_ip is
 
 
-    signal douta : std_logic_vector(17 downto 0);
+    type rom_type is array (0 to 10) of std_logic_vector(39 downto 0);
+
+
+    constant mem : rom_type := (
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000",
+"0000000000000000000000000000000000000000");
 
 begin
 
-    dout_0 <= douta(5 downto 0);
-    dout_1 <= douta(11 downto 6);
-    dout_2 <= douta(17 downto 12);
+    rom_behavior : process(clka )
+    begin
 
+        if clka'event and clka='1' 
+        then
 
-    rom_3x3_inhlif1_ip_instance : rom_3x3_inhlif1_ip
-        port map(
-            clka => clka,
-            addra => addra,
-            douta => douta
-        );
+            douta <= mem(to_integer(unsigned(addra)));
+
+        end if;
+
+    end process rom_behavior;
 
 
 end architecture behavior;

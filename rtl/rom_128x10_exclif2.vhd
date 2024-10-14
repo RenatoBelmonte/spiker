@@ -28,43 +28,59 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
 
 
-entity rom_4x3_exclif1_ip is
+entity rom_128x10_exclif2 is
     port (
         clka : in std_logic;
-        addra : in std_logic_vector(1 downto 0);
-        douta : out std_logic_vector(17 downto 0)
+        addra : in std_logic_vector(6 downto 0);
+        dout_0 : out std_logic_vector(3 downto 0);
+        dout_1 : out std_logic_vector(3 downto 0);
+        dout_2 : out std_logic_vector(3 downto 0);
+        dout_3 : out std_logic_vector(3 downto 0);
+        dout_4 : out std_logic_vector(3 downto 0);
+        dout_5 : out std_logic_vector(3 downto 0);
+        dout_6 : out std_logic_vector(3 downto 0);
+        dout_7 : out std_logic_vector(3 downto 0);
+        dout_8 : out std_logic_vector(3 downto 0);
+        dout_9 : out std_logic_vector(3 downto 0)
     );
-end entity rom_4x3_exclif1_ip;
+end entity rom_128x10_exclif2;
 
-architecture behavior of rom_4x3_exclif1_ip is
-
-
-    type rom_type is array (0 to 4) of std_logic_vector(17 downto 0);
+architecture behavior of rom_128x10_exclif2 is
 
 
-    constant mem : rom_type := (
-"000000111010111101",
-"000001000000111100",
-"111110111110000110",
-"111110111001000011",
-"000000000000000000");
+    component rom_128x10_exclif2_ip is
+        port (
+            clka : in std_logic;
+            addra : in std_logic_vector(6 downto 0);
+            douta : out std_logic_vector(39 downto 0)
+        );
+    end component;
+
+
+    signal douta : std_logic_vector(39 downto 0);
 
 begin
 
-    rom_behavior : process(clka )
-    begin
+    dout_0 <= douta(3 downto 0);
+    dout_1 <= douta(7 downto 4);
+    dout_2 <= douta(11 downto 8);
+    dout_3 <= douta(15 downto 12);
+    dout_4 <= douta(19 downto 16);
+    dout_5 <= douta(23 downto 20);
+    dout_6 <= douta(27 downto 24);
+    dout_7 <= douta(31 downto 28);
+    dout_8 <= douta(35 downto 32);
+    dout_9 <= douta(39 downto 36);
 
-        if clka'event and clka='1' 
-        then
 
-            douta <= mem(to_integer(unsigned(addra)));
-
-        end if;
-
-    end process rom_behavior;
+    rom_128x10_exclif2_ip_instance : rom_128x10_exclif2_ip
+        port map(
+            clka => clka,
+            addra => addra,
+            douta => douta
+        );
 
 
 end architecture behavior;

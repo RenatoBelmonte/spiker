@@ -33,7 +33,7 @@ use ieee.numeric_std.all;
 
 entity mux_4to1_signed is
     generic (
-        bitwidth : integer := 8
+        bitwidth : integer := 6
     );
     port (
         mux_sel : in std_logic_vector(1 downto 0);
